@@ -1,9 +1,19 @@
 [![](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-
 # terraform-google-secret-manager
 terraform module for secret manager
 
-## How to use?
+# Versions
+
+- Module tested for Terraform 0.14.
+- Google provider version [3.57.0](https://registry.terraform.io/providers/hashicorp/google/latest)
+- `main` branch: Provider versions not pinned to keep up with Terraform releases
+- `tags` releases: Tags are pinned with versions (use latest tag in your releases)
+
+**NOTE:** 
+
+- Read more on [tfremote](https://github.com/tomarv2/tfremote)
+
+## Usage
 
 Recommended method:
 
@@ -30,18 +40,6 @@ export TF_GCLOUD_CREDENTIALS=<gcp credentials.json>
 example/custom/sample.tfvars
 ```
 
-- Following entries are required:
-
-```
-- account_id
-- function_name
-- role_arn
-- source_file (relative path to the base directory or provide absolute path)
-- output_file_path
-- teamid
-- prjid
-```
-
 - Change to: 
 ```
 example/base 
@@ -62,16 +60,4 @@ tf -cloud gcloud apply -var-file <path to .tfvars file>
 tf -cloud gcloud destroy -var-file <path to .tfvars file>
 ```
 
-**NOTE:** 
-
-- Read more on [tfremote](https://github.com/tomarv2/tfremote) 
-- I will not be pinning the main branch to keep up with Terraform releases, for deployments please
-use the latest tag versions which have versions pinned for stability.
-  
-## Providers
-
-| Name | Version |
-|------|---------|
-| google | n/a |
-
-
+Please refer to example directory [link](example/README.md) for references.
