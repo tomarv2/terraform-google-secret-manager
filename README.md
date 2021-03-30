@@ -21,7 +21,6 @@
 
 > :arrow_right:  Terraform module to create [Azure Key Vault](https://registry.terraform.io/modules/tomarv2/key-vault/azure/latest)
 
-
 # Versions
 
 - Module tested for Terraform 0.14.
