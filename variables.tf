@@ -8,17 +8,8 @@ variable "prjid" {
   type        = string
 }
 
-variable "project" {
-  validation {
-    condition     = can(regex("^[a-z][a-z0-9-]{4,28}[a-z0-9]$", var.project))
-    error_message = "The project_id must be a string of alphanumeric or hyphens, between 6 and 30 characters."
-  }
-  description = <<EOD
-The GCP project identifier where the secret will be created.
-EOD
-}
-
 variable "id" {
+  type    = string
   default = null
   validation {
     condition     = can(regex("^[a-zA-Z0-9_-]{1,255}$", var.id))
@@ -27,6 +18,7 @@ variable "id" {
   description = <<EOD
 The secret identifier to create; this value must be unique within the project.
 EOD
+
 }
 
 variable "replication_locations" {
@@ -46,6 +38,8 @@ EOD
 }
 
 variable "secret" {
+
+  type = string
   validation {
     condition     = length(var.secret) > 0
     error_message = "The secret must be a string that contains at least 1 character."
