@@ -1,8 +1,7 @@
 # Create a slot for the secret in Secret Manager
 resource "google_secret_manager_secret" "default" {
-  project   = var.gcp_project
   secret_id = var.id == null ? "${var.teamid}-${var.prjid}" : var.id
-  labels    = merge(local.shared_tags)
+  labels    = merge(local.shared_labels)
   replication {
     dynamic "user_managed" {
       for_each = length(var.replication_locations) > 0 ? [1] : []
@@ -24,4 +23,3 @@ resource "google_secret_manager_secret_version" "secret" {
   secret      = google_secret_manager_secret.default.id
   secret_data = var.secret
 }
-

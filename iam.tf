@@ -3,7 +3,7 @@
 # from accounts that were granted the role outside this module.
 resource "google_secret_manager_secret_iam_member" "secret" {
   for_each  = toset(var.accessors)
-  project   = var.gcp_project
+  project   = var.project
   secret_id = google_secret_manager_secret.default.secret_id
   role      = "roles/secretmanager.secretAccessor"
   member    = each.value
