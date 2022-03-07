@@ -38,7 +38,6 @@ EOD
 }
 
 variable "secret" {
-
   type = string
   validation {
     condition     = length(var.secret) > 0
